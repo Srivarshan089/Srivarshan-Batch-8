@@ -1,0 +1,26 @@
+create database db4;
+create table student(
+     stu_id int primary key,
+     s_name varchar(30),
+     department text);
+describe student;
+alter table student add ph_no varchar(10);
+describe student;
+alter table student drop column department;
+describe student;
+insert into student values (1, "aaa","11111");
+insert into student values(2,"bbb","22222");
+insert into student values
+      (3,"ccc","33333"),
+      (4,"ddd","44444"),
+      (5,"eee","5555");
+insert into student(stu_id,s_name)values(6,"fff");
+#insert into student(s_name,ph_no)value("ggg","77777");
+select  *  from student;
+select stu_id,s_name from student;
+      
+      
+        
+
+     
+     
