@@ -1,0 +1,42 @@
+create database BooksDB;
+create table Books(
+   S_no int primary key auto_increment,
+   Title text,
+   Author varchar(30),
+   Genre text,
+   Publication_Year year,
+   Price int);
+create Table Authors(
+    SI_no int primary key auto_increment,
+    A_DOB date,
+    A_Native varchar(30),
+    Publish int,
+    S_no int,
+    constraint fk_S_no foreign key(S_no) references Books(S_no));
+insert into Books values
+    (1,"AAA","Mr.Sri","Tamil","1999","3000"),
+    (2,"BBB","Mr.Varshan","English","2002","7000"),
+    (3,"CCC","Mr.Vichu","Maths","2000","5000"),
+    (4,"DDD","Mr.Jeevs","Science","1995","4500"),
+    (5,"EEE","Mr.Nikitha","Social Science","2003","6500");
+insert into Authors values
+    (101,"1965-08-10","Attur","16",1),
+    (102,"1972-05-20","Salem","20",2),
+    (103,"1985-12-25","Trichi","15",3),
+    (104,"1975-09-29","Namakkal","35",4),
+    (105,"1985-02-21","Krishnagiri","39",5);
+select*from Books;
+select *from Books where Title="AAA";
+update Books
+set Price = 10000
+where Title="AAA";
+Delete from Books where Title="BBB";
+select*from Books;
+select* from Authors;
+select*from Books;
+select Authors.A_DOB,Authors.A_Native,Authors.Publish,Books.Price from Authors
+inner join Books on Authors.S_no=Books.S_no order by SI_no;
+select Authors.A_DOB,Authors.A_Native,Authors.Publish,Books.Price from Authors
+left join Books on Authors.S_no=Books.S_no order by SI_no;
+select Authors.A_DOB,Authors.A_Native,Authors.Publish,Books.Price from Authors
+right join Books on Authors.S_no=Books.S_no order by SI_no;
