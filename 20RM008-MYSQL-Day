@@ -1,0 +1,32 @@
+create database high;
+create table  customer(
+    customer_id int primary key,
+    customer_name varchar(30),
+    customer_no varchar(10),
+    customer_purchased int);
+create table goods(
+    goods_id int primary key,
+	goods_name varchar(30),
+    goods_quantity int,
+    goods_price int,
+    customer_id int,
+    constraint fk_cus_id foreign key(customer_id) references  customer(customer_id));
+insert into customer values
+    (1,"Sri","9345360712","2000"),
+    (2,"Varshan","6385691305",1000),
+    (3,"Vichu","3698521470",500),
+    (4,"Machi","0531965836",10000),
+    (5,"Sachi","1234567890",15000),
+    (6,"Jeevs","9876543210",12500),
+    (7,"Nandha","147258/369",12365);
+insert into goods values
+     (11,"Karuvapillai","1",4000,1),
+     (12,"Kothamalli","3",5000,2),
+     (13,"Milagai","5",6000,3),
+     (14,"Vengayam","2",2000,4),
+     (15,"Kathirikai","3",2500,5);
+select * from customer;
+select * from goods;
+select goods_id,goods_name,goods_quantity,goods_price,customer_id from goods where goods_price>2500;
+     
+     
